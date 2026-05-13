@@ -7,8 +7,8 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { ProjectModal } from '@/components/ProjectModal';
 import { Project } from '@/types/project';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Code2 } from 'lucide-react';
-import { FaInstagram, FaGithub } from 'react-icons/fa';
+import { Mail, Code2 } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -190,51 +190,19 @@ export default function Home() {
               </a>
 
               <a
-                href={`tel:${contactInfo.phone}`}
+                href={`https://${contactInfo.github}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-700/50 transition-colors group"
               >
                 <div className="p-3 bg-purple-500/10 rounded-lg group-hover:bg-purple-500/20 transition-colors">
-                  <Phone className="text-purple-400" size={24} />
+                  <FaGithub className="text-purple-400" size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Phone</p>
-                  <p className="text-white">{contactInfo.phone}</p>
+                  <p className="text-sm text-gray-500">GitHub</p>
+                  <p className="text-white">{contactInfo.github}</p>
                 </div>
               </a>
-
-              {contactInfo.instagram && (
-                <a
-                  href={`https://instagram.com/${contactInfo.instagram.replace('@', '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-700/50 transition-colors group"
-                >
-                  <div className="p-3 bg-purple-500/10 rounded-lg group-hover:bg-purple-500/20 transition-colors">
-                    <FaInstagram className="text-purple-400" size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Instagram</p>
-                    <p className="text-white">{contactInfo.instagram}</p>
-                  </div>
-                </a>
-              )}
-
-              {contactInfo.github && (
-                <a
-                  href={`https://${contactInfo.github}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-700/50 transition-colors group"
-                >
-                  <div className="p-3 bg-purple-500/10 rounded-lg group-hover:bg-purple-500/20 transition-colors">
-                    <FaGithub className="text-purple-400" size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">GitHub</p>
-                    <p className="text-white">{contactInfo.github}</p>
-                  </div>
-                </a>
-              )}
             </div>
 
             <div className="mt-8 pt-8 border-t border-gray-700 text-center">
@@ -254,7 +222,7 @@ export default function Home() {
       {/* 푸터 */}
       <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
         <div className="max-w-7xl mx-auto text-center text-gray-500 text-sm">
-          <p>© 2024 Your Name. All rights reserved.</p>
+          <p>© 2026 It Kong. Keep Building.</p>
         </div>
       </footer>
 
