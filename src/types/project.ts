@@ -1,22 +1,27 @@
+export type ProjectStatus = 'live' | 'private' | 'preparing';
+
 export interface Project {
   id: string;
+  no: string;
   title: string;
+  subtitle: string;
   description: string;
   thumbnail: string;
-  images: string[];
+  images?: string[];
   tags: string[];
+  period?: string;
+  role?: string;
   techStack: string[];
-  duration: string;
-  client?: string;
-  role: string;
-  detailDescription: string;
-  demoUrl?: string;
+  features: string[];
+  contribution: string[];
+  siteUrl?: string;
   githubUrl?: string;
+  status: ProjectStatus;
 }
 
 export interface TechStack {
   name: string;
-  icon: string;
+  icon?: string;
 }
 
 export interface ContactInfo {

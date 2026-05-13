@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Designer & Developer Portfolio",
-  description: "사용자의 경험을 가치있게 만드는 디자인과 효율적인 코드로 작업하는 개발자입니다.",
-  keywords: ["portfolio", "web developer", "frontend", "designer", "react", "next.js"],
-  authors: [{ name: "Your Name" }],
+  title: "It Kong Portfolio | Backend-focused Full-stack Developer",
+  description: "백엔드 중심 풀스택 개발자 It Kong의 프로젝트 포트폴리오입니다. Trip-pocket, CalcDock, Personality Type Explorer 등 실제 서비스와 프로젝트를 소개합니다.",
+  keywords: ["portfolio", "backend developer", "full-stack developer", "Java", "Kotlin", "Spring Boot", "AWS", "Next.js", "React", "AI product"],
+  authors: [{ name: "It Kong" }],
   openGraph: {
-    title: "Your Name - Portfolio",
-    description: "Designer & Developer Portfolio",
+    title: "It Kong Portfolio",
+    description: "사용자의 문제를 실제 서비스로 풀어내는 백엔드 중심 풀스택 개발자 포트폴리오",
     type: "website",
   },
 };

@@ -114,7 +114,7 @@ export const projects: Project[] = [
 
 ```typescript
 export const contactInfo: ContactInfo = {
-  email: 'yourname@gmail.com',
+  email: 'ponykit@gmail.com',
   phone: '010-1234-5678',
   instagram: '@yourname_official',
   github: 'github.com/yourname',
@@ -168,4 +168,4 @@ Framer Motion을 사용하므로 각 컴포넌트에서 애니메이션을 수�
 
 ## 👤 제작자
 
-Your Name - [yourname@gmail.com](mailto:yourname@gmail.com)
+Your Name - [ponykit@gmail.com](mailto:ponykit@gmail.com)
