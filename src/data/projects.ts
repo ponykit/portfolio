@@ -1,4 +1,4 @@
-import { Project } from '@/types/project';
+import type { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
@@ -9,7 +9,13 @@ export const projects: Project[] = [
     description:
       '사용자의 조건에 맞춰 실제로 갈 수 있는 국내여행 코스를 추천하는 AI 여행 플랫폼입니다.',
     thumbnail: '/images/projects/trip-pocket.png',
-    images: ['/images/projects/trip-pocket.png'],
+    images: [
+      '/images/projects/trip-pocket.png',
+      '/images/projects/trip-pocket-02-courses.png',
+      '/images/projects/trip-pocket-03-festivals.png',
+      '/images/projects/trip-pocket-04-guides.png',
+      '/images/projects/trip-pocket-05-tools.png',
+    ],
     tags: ['AI Travel', 'Next.js', 'Spring Boot'],
     period: '2025 - 진행중',
     role: '기획 / 백엔드 / 프론트 / AI 파이프라인',
@@ -45,7 +51,13 @@ export const projects: Project[] = [
     description:
       '사용자가 필요한 계산기를 빠르게 찾고 활용할 수 있도록 구성한 도구형 웹사이트입니다.',
     thumbnail: '/images/projects/calcdock.png',
-    images: ['/images/projects/calcdock.png'],
+    images: [
+      '/images/projects/calcdock.png',
+      '/images/projects/calcdock-02-home.png',
+      '/images/projects/calcdock-03-calculators.png',
+      '/images/projects/calcdock-04-categories-date-time.png',
+      '/images/projects/calcdock-05-categories-finance-money.png',
+    ],
     tags: ['Calculator', 'SEO', 'Content Site'],
     period: '2026',
     role: '기획 / 개발 / SEO 개선',
@@ -71,7 +83,13 @@ export const projects: Project[] = [
     description:
       '성격유형 테스트와 자기이해 콘텐츠를 제공하는 정보형 웹사이트입니다.',
     thumbnail: '/images/projects/personality-type-explorer.png',
-    images: ['/images/projects/personality-type-explorer.png'],
+    images: [
+      '/images/projects/personality-type-explorer.png',
+      '/images/projects/personality-type-explorer-02-guide.png',
+      '/images/projects/personality-type-explorer-03-about.png',
+      '/images/projects/personality-type-explorer-04-terms.png',
+      '/images/projects/personality-type-explorer-05-privacy.png',
+    ],
     tags: ['Personality', 'Content', 'SEO'],
     period: '2026',
     role: '기획 / 개발 / 콘텐츠 구조 개선',
@@ -97,7 +115,13 @@ export const projects: Project[] = [
     description:
       '이름과 사주 기반 정보를 제공하는 콘텐츠형 웹사이트입니다.',
     thumbnail: '/images/projects/saju-naming.png',
-    images: ['/images/projects/saju-naming.png'],
+    images: [
+      '/images/projects/saju-naming.png',
+      '/images/projects/saju-naming-02-blog.png',
+      '/images/projects/saju-naming-03-contact.png',
+      '/images/projects/saju-naming-04-guide-naming.png',
+      '/images/projects/saju-naming-05-naming-normal.png',
+    ],
     tags: ['Naming', 'Content', 'SEO'],
     period: '2026',
     role: '기획 / 개발',
@@ -114,57 +138,5 @@ export const projects: Project[] = [
     ],
     siteUrl: 'https://saju-naming.pages.dev',
     status: 'live',
-  },
-  {
-    id: 'rhythm-edu',
-    no: '05',
-    title: 'Rhythm EDU',
-    subtitle: '수업용 리듬 학습 플랫폼',
-    description:
-      '음악 선생님이 수업 현장에서 바로 활용할 수 있는 세로형 리듬 학습 플랫폼입니다.',
-    thumbnail: '/images/projects/rhythm-edu.png',
-    images: ['/images/projects/rhythm-edu.png'],
-    tags: ['Education', 'Music', 'Admin'],
-    period: '2026',
-    role: '제품 기획 / UX 설계 / 프론트·백엔드 구조 설계',
-    techStack: ['React', 'TypeScript', 'Spring Boot'],
-    features: [
-      '교사용/학생용 화면',
-      '세로형 숏폼 리듬 학습 UI',
-      '수업용 콘텐츠 관리',
-      '어드민 운영 구조',
-    ],
-    contribution: [
-      '제품 방향 정의',
-      '학습 플로우 설계',
-      '프론트/어드민/백엔드 구조 정리',
-    ],
-    status: 'preparing',
-  },
-  {
-    id: 'stock-insight-ui',
-    no: '06',
-    title: 'Stock Insight UI',
-    subtitle: '주식 예측/분석 서비스 UI',
-    description:
-      '투자자가 종목, 기간, 확률, 매수가/매도가를 직관적으로 확인할 수 있는 주식 분석 UI 실험입니다.',
-    thumbnail: '/images/projects/stock-insight-ui.png',
-    images: ['/images/projects/stock-insight-ui.png'],
-    tags: ['Finance', 'AI', 'Dashboard'],
-    period: '2026',
-    role: '서비스 기획 / UI 설계',
-    techStack: ['React', 'TypeScript', 'Chart UI'],
-    features: [
-      '종목별 분석 카드',
-      '기간별 매수/매도 전략',
-      '확률 기반 투자 판단 UI',
-      '시장 이슈 요약 영역',
-    ],
-    contribution: [
-      '정보 구조 설계',
-      '대시보드 UI 설계',
-      '투자자 관점의 UX 정리',
-    ],
-    status: 'preparing',
   },
 ];

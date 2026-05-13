@@ -1,19 +1,28 @@
 @import 'tailwindcss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
 html {
+  min-height: 100%;
+  background: #080b15;
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 body {
+  min-height: 100%;
+  margin: 0;
+  background: #080b15;
   font-family: var(--font-geist-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
 }
 
 /* 스크롤바 스타일 */
