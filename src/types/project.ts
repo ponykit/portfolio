@@ -21,7 +21,5 @@ export interface TechStack {
 
 export interface ContactInfo {
   email: string;
-  phone: string;
-  instagram?: string;
-  github?: string;
+  github: string;
 }
