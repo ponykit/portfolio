@@ -1,0 +1,247 @@
+{
+  "baseUrl": "https://trip-pocket.itkong.uk/",
+  "generatedAt": "2026-05-21T13:28:24.569Z",
+  "captures": [
+    {
+      "url": "https://trip-pocket.itkong.uk/",
+      "kind": "menu",
+      "menuKey": "root",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/trip-pocket-itkong-uk__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/trip-pocket-itkong-uk__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.045Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko",
+      "kind": "menu",
+      "menuKey": "root",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.547Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.547Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/festivals",
+      "kind": "menu",
+      "menuKey": "festivals",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/guides",
+      "kind": "menu",
+      "menuKey": "guides",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-guides__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-guides__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/tools",
+      "kind": "menu",
+      "menuKey": "tools",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-tools__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-tools__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/me",
+      "kind": "menu",
+      "menuKey": "root",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/me?tab=bookmarks",
+      "kind": "menu",
+      "menuKey": "root",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__q_tab-bookmarks__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__q_tab-bookmarks__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/me?tab=history",
+      "kind": "menu",
+      "menuKey": "root",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__q_tab-history__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-me__q_tab-history__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/festivals?fid=118419",
+      "kind": "menu",
+      "menuKey": "festivals",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-118419__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-118419__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/festivals?fid=98455",
+      "kind": "menu",
+      "menuKey": "festivals",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-98455__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-98455__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/festivals?fid=91822",
+      "kind": "menu",
+      "menuKey": "festivals",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-91822__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-festivals__q_fid-91822__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=seoul",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-seoul__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-seoul__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=gangwon",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gangwon__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gangwon__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=jeonbuk",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeonbuk__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeonbuk__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=gyeongbuk",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeongbuk__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeongbuk__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=chungnam",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-chungnam__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-chungnam__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=busan",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-busan__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-busan__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=gyeongnam",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeongnam__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeongnam__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.548Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=jeonnam",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeonnam__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeonnam__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=incheon",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-incheon__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-incheon__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=jeju",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeju__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-jeju__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=daegu",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-daegu__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-daegu__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=gyeonggi",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeonggi__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-gyeonggi__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses?region=chungbuk",
+      "kind": "menu",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-chungbuk__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses__q_region-chungbuk__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/about-ai-travel-planner",
+      "kind": "menu",
+      "menuKey": "about-ai-travel-planner",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-about-ai-travel-planner__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-about-ai-travel-planner__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/contact",
+      "kind": "menu",
+      "menuKey": "contact",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/contact__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/contact__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/privacy",
+      "kind": "menu",
+      "menuKey": "privacy",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-privacy__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-privacy__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/terms",
+      "kind": "menu",
+      "menuKey": "terms",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-terms__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-terms__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    },
+    {
+      "url": "https://trip-pocket.itkong.uk/ko/courses/busan-2d-anchor",
+      "kind": "detail",
+      "menuKey": "courses",
+      "screenshotPc": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses-busan-2d-anchor__pc.png",
+      "screenshotMobile": "/Users/ponykit00/Documents/work/ikong/portfolio/scripts/capture-site/output/screenshots/ko-courses-busan-2d-anchor__mobile.png",
+      "capturedAt": "2026-05-21T13:28:24.549Z"
+    }
+  ],
+  "failed": []
+}

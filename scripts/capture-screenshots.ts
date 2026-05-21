@@ -1,4 +1,4 @@
-import { Browser, chromium } from 'playwright';
+import { Browser, Page, chromium } from 'playwright';
 import { projects } from '../src/data/projects';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -6,11 +6,24 @@ import * as path from 'path';
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'images', 'projects');
 const VIEWPORT = { width: 1440, height: 1080 };
 const MENU_PAGE_COUNT = 5;
+const ENVIRONMENT_VIEWPORTS = [
+  { name: 'mobile', label: 'Mobile', width: 390, height: 844 },
+  { name: 'tablet', label: 'Tablet', width: 834, height: 1112 },
+  { name: 'desktop', label: 'Desktop', width: 1440, height: 1080 },
+] as const;
 
 type CaptureResult = {
   filename: string;
+  outputPath?: string;
   ok: boolean;
   error?: unknown;
+};
+
+type EnvironmentCapture = {
+  label: string;
+  viewport: string;
+  filename: string;
+  outputPath: string;
 };
 
 function getFilenameFromProject(project: (typeof projects)[number]) {
@@ -36,6 +49,41 @@ function getMenuFilename(project: (typeof projects)[number], url: string, index:
 
   const order = String(index + 1).padStart(2, '0');
   return `${project.id}-${order}-${slugifyUrl(url)}.png`;
+}
+
+function ensureOutputDir() {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
+}
+
+function splitFilename(filename: string) {
+  const parsed = path.parse(filename);
+  return {
+    name: parsed.name,
+    ext: parsed.ext || '.png',
+  };
+}
+
+function getEnvironmentFilename(filename: string, suffix: string) {
+  const { name, ext } = splitFilename(filename);
+  return `${name}-${suffix}${ext}`;
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function getImageDataUrl(filePath: string) {
+  const ext = path.extname(filePath).toLowerCase();
+  const mimeType = ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : 'image/png';
+  const data = fs.readFileSync(filePath).toString('base64');
+  return `data:${mimeType};base64,${data}`;
 }
 
 function isCapturableInternalUrl(url: string, origin: string) {
@@ -110,13 +158,22 @@ async function captureScreenshot(
   url: string,
   filename: string
 ): Promise<CaptureResult> {
+  return captureScreenshotWithViewport(browser, url, filename, VIEWPORT);
+}
+
+async function captureScreenshotWithViewport(
+  browser: Browser,
+  url: string,
+  filename: string,
+  viewport: { width: number; height: number }
+): Promise<CaptureResult> {
   const page = await browser.newPage({
-    viewport: VIEWPORT,
+    viewport,
     deviceScaleFactor: 1,
   });
 
   try {
-    console.log(`Capturing: ${url}`);
+    console.log(`Capturing ${viewport.width}x${viewport.height}: ${url}`);
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
     await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
@@ -132,7 +189,7 @@ async function captureScreenshot(
     });
 
     console.log(`Saved: ${filename}`);
-    return { filename, ok: true };
+    return { filename, outputPath, ok: true };
   } catch (error) {
     console.error(`Failed to capture ${url}:`, error);
     return { filename, ok: false, error };
@@ -141,10 +198,163 @@ async function captureScreenshot(
   }
 }
 
-async function captureAllProjects() {
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+async function composeEnvironmentBundle(
+  page: Page,
+  captures: EnvironmentCapture[],
+  title: string,
+  filename: string
+): Promise<CaptureResult> {
+  try {
+    const outputPath = path.join(OUTPUT_DIR, filename);
+    const cards = captures
+      .map(
+        (capture) => `
+          <figure class="card">
+            <div class="label-row">
+              <strong>${escapeHtml(capture.label)}</strong>
+              <span>${escapeHtml(capture.viewport)}</span>
+            </div>
+            <img src="${getImageDataUrl(capture.outputPath)}" alt="${escapeHtml(
+              capture.label
+            )} screenshot" />
+          </figure>
+        `
+      )
+      .join('');
+
+    await page.setViewportSize({ width: 1800, height: 1200 });
+    await page.setContent(
+      `
+        <!doctype html>
+        <html>
+          <head>
+            <meta charset="utf-8" />
+            <style>
+              * { box-sizing: border-box; }
+              body {
+                margin: 0;
+                padding: 48px;
+                background: #f4f7fb;
+                color: #111827;
+                font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+              }
+              .shell {
+                width: 100%;
+                display: grid;
+                gap: 28px;
+              }
+              .title {
+                margin: 0;
+                font-size: 32px;
+                line-height: 1.2;
+                font-weight: 800;
+                letter-spacing: 0;
+              }
+              .grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 24px;
+                align-items: start;
+              }
+              .card {
+                margin: 0;
+                overflow: hidden;
+                border: 1px solid #d8e0ec;
+                border-radius: 8px;
+                background: white;
+                box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+              }
+              .label-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 14px 16px;
+                border-bottom: 1px solid #e5eaf2;
+                font-size: 16px;
+                line-height: 1.2;
+              }
+              .label-row span {
+                color: #64748b;
+                font-weight: 600;
+              }
+              img {
+                display: block;
+                width: 100%;
+                height: auto;
+              }
+            </style>
+          </head>
+          <body>
+            <main class="shell">
+              <h1 class="title">${escapeHtml(title)}</h1>
+              <section class="grid">${cards}</section>
+            </main>
+          </body>
+        </html>
+      `,
+      { waitUntil: 'load' }
+    );
+    await page.screenshot({ path: outputPath, fullPage: true });
+    console.log(`Saved bundle: ${filename}`);
+    return { filename, outputPath, ok: true };
+  } catch (error) {
+    console.error(`Failed to compose ${filename}:`, error);
+    return { filename, ok: false, error };
   }
+}
+
+async function captureEnvironmentBundle(
+  browser: Browser,
+  url: string,
+  filename: string,
+  title = url
+): Promise<CaptureResult[]> {
+  const results: CaptureResult[] = [];
+  const captures: EnvironmentCapture[] = [];
+
+  for (const viewport of ENVIRONMENT_VIEWPORTS) {
+    const envFilename = getEnvironmentFilename(filename, viewport.name);
+    const result = await captureScreenshotWithViewport(
+      browser,
+      url,
+      envFilename,
+      viewport
+    );
+    results.push(result);
+
+    if (result.ok && result.outputPath) {
+      captures.push({
+        label: viewport.label,
+        viewport: `${viewport.width} x ${viewport.height}`,
+        filename: result.filename,
+        outputPath: result.outputPath,
+      });
+    }
+  }
+
+  if (captures.length !== ENVIRONMENT_VIEWPORTS.length) {
+    return results;
+  }
+
+  const page = await browser.newPage({ viewport: { width: 1800, height: 1200 } });
+  try {
+    results.push(
+      await composeEnvironmentBundle(
+        page,
+        captures,
+        title,
+        getEnvironmentFilename(filename, 'env-bundle')
+      )
+    );
+  } finally {
+    await page.close();
+  }
+
+  return results;
+}
+
+async function captureAllProjects() {
+  ensureOutputDir();
 
   const projectsToCapture = projects.filter(
     (p) => p.status === 'live' && p.siteUrl
@@ -178,9 +388,7 @@ async function captureAllProjects() {
 }
 
 async function captureMenuPages() {
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
+  ensureOutputDir();
 
   const projectsToCapture = projects.filter(
     (p) => p.status === 'live' && p.siteUrl
@@ -209,6 +417,43 @@ async function captureMenuPages() {
   }
 
   console.log('\nAll menu screenshots captured.');
+}
+
+async function captureEnvironmentBundles() {
+  ensureOutputDir();
+
+  const projectsToCapture = projects.filter(
+    (p) => p.status === 'live' && p.siteUrl
+  );
+  const browser = await chromium.launch();
+  const results: CaptureResult[] = [];
+
+  for (const project of projectsToCapture) {
+    if (!project.siteUrl) {
+      continue;
+    }
+
+    console.log(`\n${project.title}: environment bundle`);
+    results.push(
+      ...(await captureEnvironmentBundle(
+        browser,
+        project.siteUrl,
+        getFilenameFromProject(project),
+        project.title
+      ))
+    );
+  }
+
+  await browser.close();
+
+  const failed = results.filter((result) => !result.ok);
+  if (failed.length > 0) {
+    console.error(`\n${failed.length} environment screenshot(s) failed.`);
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log('\nAll environment bundles captured.');
 }
 
 async function inspectSajuNamingPage() {
@@ -338,9 +583,23 @@ async function captureCustomUrl() {
     await inspectSajuNamingPage();
   } else if (args.length === 1 && args[0] === '--menu-pages') {
     await captureMenuPages();
+  } else if (args.length === 1 && args[0] === '--env-bundle') {
+    await captureEnvironmentBundles();
+  } else if (args.length === 3 && args[0] === '--env-bundle') {
+    const [, url, filename] = args;
+    console.log('Custom environment bundle mode');
+    ensureOutputDir();
+    const browser = await chromium.launch();
+    const results = await captureEnvironmentBundle(browser, url, filename);
+    await browser.close();
+
+    if (results.some((result) => !result.ok)) {
+      process.exitCode = 1;
+    }
   } else if (args.length === 2) {
     const [url, filename] = args;
     console.log('Custom capture mode');
+    ensureOutputDir();
     const browser = await chromium.launch();
     const result = await captureScreenshot(browser, url, filename);
     await browser.close();
@@ -356,9 +615,12 @@ async function captureCustomUrl() {
     console.log('  npm run capture -- --inspect-saju   # Inspect Saju naming controls');
     console.log('  npm run capture -- --inspect-saju-result # Inspect Saju result controls');
     console.log('  npm run capture -- --menu-pages     # Capture 5 menu pages per project');
+    console.log('  npm run capture -- --env-bundle     # Capture mobile/tablet/desktop bundles');
+    console.log('  npm run capture -- --env-bundle <url> <filename> # Capture one responsive bundle');
     console.log('  npm run capture <url> <filename>    # Capture specific URL');
     console.log('\nExamples:');
     console.log('  npm run capture https://trip-pocket.itkong.uk/ko trip-pocket.png');
+    console.log('  npm run capture -- --env-bundle https://trip-pocket.itkong.uk/ko trip-pocket.png');
   }
 }
 

@@ -80,6 +80,20 @@ npm run capture <URL> <파일명>
 npm run capture https://example.com example-screenshot.png
 ```
 
+### 환경별 묶음 캡처
+
+모바일, 태블릿, 데스크톱 화면을 각각 캡처한 뒤 한 장의 이미지로 묶어서 저장합니다.
+
+```bash
+npm run capture -- --env-bundle
+```
+
+특정 URL만 묶음 캡처할 수도 있습니다.
+
+```bash
+npm run capture -- --env-bundle <URL> <파일명>
+```
+
 캡처된 이미지는 `public/images/projects/` 폴더에 저장됩니다.
 
 ## ✏️ 콘텐츠 수정

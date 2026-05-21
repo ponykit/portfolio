@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "capture": "tsx scripts/capture-screenshots.ts"
+    "capture": "tsx scripts/capture-screenshots.ts",
+    "capture:site": "bash scripts/capture-site/run.sh",
+    "capture:trip-pocket": "bash scripts/capture-site/run.sh https://trip-pocket.itkong.uk/ko"
   },
   "dependencies": {
     "clsx": "^2.1.1",
