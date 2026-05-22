@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# site capture output (generated artifacts)
+scripts/capture-site/output/screenshots/
+scripts/capture-site/output/manifest.json
+scripts/capture-site/output/failed-captures.json
+scripts/capture-site/output/index.html
