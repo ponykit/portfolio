@@ -92,11 +92,11 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
             상세보기
           </button>
           {canViewSite ? (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(project.siteUrl, '_blank');
-              }}
+            <a
+              href={project.siteUrl}
+              target="_blank"
+              rel="noopener"
+              onClick={(e) => e.stopPropagation()}
               className={clsx(
                 'flex-1 sm:flex-initial py-2 px-4 rounded-lg',
                 'bg-purple-600 text-white text-sm font-medium',
@@ -106,7 +106,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
             >
               사이트 보기
               <ExternalLink size={14} />
-            </button>
+            </a>
           ) : (
             <button
               disabled
