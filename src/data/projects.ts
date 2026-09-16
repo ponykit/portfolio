@@ -40,7 +40,7 @@ export const projects: Project[] = [
       '프론트 UX 개선',
       'AI 기반 코스 품질 개선 방향 설계',
     ],
-    siteUrl: 'https://trip-pocket.itkong.uk/ko',
+    siteUrl: 'https://trip-pocket.itkong.uk/ko/',
     status: 'live',
   },
   {

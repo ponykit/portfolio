@@ -259,14 +259,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                         닫기
                       </button>
                       {canViewSite ? (
-                        <button
-                          type="button"
-                          onClick={() => window.open(project.siteUrl, '_blank')}
+                        <a
+                          href={project.siteUrl}
+                          target="_blank"
+                          rel="noopener"
                           className="inline-flex h-10 min-w-36 items-center justify-center gap-2 rounded-md bg-gradient-to-r from-violet-500 to-purple-700 px-6 text-sm font-semibold text-white shadow-[0_0_22px_rgba(124,58,237,0.34)] transition-opacity hover:opacity-95"
                         >
                           사이트 보기
                           <ExternalLink size={15} />
-                        </button>
+                        </a>
                       ) : (
                         <button
                           type="button"
