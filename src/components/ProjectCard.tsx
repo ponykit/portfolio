@@ -117,7 +117,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
                 'flex items-center justify-center gap-2 whitespace-nowrap'
               )}
             >
-              사이트 준비중
+              {project.status === 'private' ? '비공개 운영' : '사이트 준비중'}
             </button>
           )}
         </div>

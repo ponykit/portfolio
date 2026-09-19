@@ -274,7 +274,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                           disabled
                           className="h-10 min-w-36 cursor-not-allowed rounded-md bg-white/8 px-6 text-sm font-medium text-gray-500"
                         >
-                          사이트 준비중
+                          {project.status === 'private' ? '비공개 운영' : '사이트 준비중'}
                         </button>
                       )}
                     </div>
