@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Project } from '@/types/project';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ExternalLink, X } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, ExternalLink, Maximize2, X } from 'lucide-react';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -15,6 +15,7 @@ interface ProjectModalProps {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     if (project) {
@@ -22,6 +23,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedImageIndex(0);
       setImageErrors({});
+      setIsZoomed(false);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -31,17 +33,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
   }, [project]);
 
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && project) {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [project, onClose]);
-
   const modalImages = useMemo(() => {
     if (!project) {
       return [];
@@ -50,6 +41,33 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     const images = project.images?.length ? project.images : [project.thumbnail];
     return images.slice(0, 6);
   }, [project]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (!project) {
+        return;
+      }
+      // 크게 보기가 열려 있으면 Esc 는 크게 보기만 닫고, 좌우 화살표로 넘긴다.
+      if (isZoomed) {
+        const count = modalImages.length;
+        if (e.key === 'Escape') setIsZoomed(false);
+        if (e.key === 'ArrowLeft') setSelectedImageIndex((i) => (i - 1 + count) % count);
+        if (e.key === 'ArrowRight') setSelectedImageIndex((i) => (i + 1) % count);
+        return;
+      }
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [project, onClose, isZoomed, modalImages.length]);
+
+  const showPrev = () =>
+    setSelectedImageIndex((i) => (i - 1 + modalImages.length) % modalImages.length);
+  const showNext = () =>
+    setSelectedImageIndex((i) => (i + 1) % modalImages.length);
 
   const handleImageError = (index: number) => {
     setImageErrors((prev) => ({ ...prev, [index]: true }));
@@ -101,14 +119,25 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <div className="space-y-4">
                     <div className="relative aspect-[1.18] overflow-hidden rounded-md bg-gray-800/70">
                       {selectedImage && !imageErrors[selectedImageIndex] ? (
-                        <Image
-                          src={selectedImage}
-                          alt={`${project.title} 대표 이미지`}
-                          fill
-                          sizes="(min-width: 1024px) 320px, 100vw"
-                          className="object-cover"
-                          onError={() => handleImageError(selectedImageIndex)}
-                        />
+                        <button
+                          type="button"
+                          onClick={() => setIsZoomed(true)}
+                          aria-label={`${project.title} 이미지 크게 보기`}
+                          className="group/zoom absolute inset-0 cursor-zoom-in"
+                        >
+                          <Image
+                            src={selectedImage}
+                            alt={`${project.title} 대표 이미지`}
+                            fill
+                            sizes="(min-width: 1024px) 320px, 100vw"
+                            className="object-cover"
+                            onError={() => handleImageError(selectedImageIndex)}
+                          />
+                          <span className="absolute bottom-2 right-2 flex items-center gap-1.5 rounded-md bg-black/60 px-2 py-1 text-[11px] font-medium text-white opacity-80 transition-opacity group-hover/zoom:opacity-100">
+                            <Maximize2 size={12} />
+                            크게 보기
+                          </span>
+                        </button>
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center bg-gray-800 text-sm text-gray-500">
                           이미지 준비중
@@ -283,6 +312,66 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </motion.div>
             </div>
           </div>
+
+          {isZoomed && selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${project.title} 이미지 크게 보기`}
+              onClick={() => setIsZoomed(false)}
+              className="fixed inset-0 z-[60] flex items-center justify-center bg-black/92 p-4 sm:p-10"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={selectedImage}
+                alt={`${project.title} 이미지 ${selectedImageIndex + 1}`}
+                onClick={(e) => e.stopPropagation()}
+                className="max-h-full max-w-full rounded-md object-contain shadow-2xl"
+              />
+
+              <button
+                type="button"
+                onClick={() => setIsZoomed(false)}
+                aria-label="크게 보기 닫기"
+                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              >
+                <X size={22} />
+              </button>
+
+              {modalImages.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showPrev();
+                    }}
+                    aria-label="이전 이미지"
+                    className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+                  >
+                    <ChevronLeft size={26} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showNext();
+                    }}
+                    aria-label="다음 이미지"
+                    className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+                  >
+                    <ChevronRight size={26} />
+                  </button>
+                  <span className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-xs text-gray-200">
+                    {selectedImageIndex + 1} / {modalImages.length}
+                  </span>
+                </>
+              )}
+            </motion.div>
+          )}
         </>
       )}
     </AnimatePresence>
