@@ -72,7 +72,7 @@ export const projects: Project[] = [
       '얇은 콘텐츠 정리',
       'SEO 및 내부 링크 구조 개선',
     ],
-    siteUrl: 'https://calcdock.pages.dev',
+    siteUrl: 'https://calcdock.itkong.uk',
     status: 'live',
   },
   {
@@ -104,7 +104,7 @@ export const projects: Project[] = [
       '크롤러 노출 구조 개선',
       'AdSense 재심사 대응 구조 설계',
     ],
-    siteUrl: 'https://personality-type-explorer.pages.dev',
+    siteUrl: 'https://personality.itkong.uk',
     status: 'live',
   },
   {
@@ -136,7 +136,7 @@ export const projects: Project[] = [
       '콘텐츠 페이지 구성',
       'SEO 대응 구조 개선',
     ],
-    siteUrl: 'https://saju-naming.pages.dev',
+    siteUrl: 'https://saju.itkong.uk',
     status: 'live',
   },
   {
